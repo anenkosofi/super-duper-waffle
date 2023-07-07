@@ -22,7 +22,9 @@
       "@styles/*": ["./styles/*"],
       "@types": ["./types"],
       "@pages/*": ["./pages/*"],
-      "@hooks": ["./hooks"]
+      "@hooks": ["./hooks"],
+      "@store": ["./store"],
+      "@store/*": ["./store/*"]
     },
     "types": ["vite-plugin-svgr/client"]
   },
