@@ -1,0 +1,96 @@
+@import '@styles/shared.scss';
+
+.tweets {
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 380px;
+    height: 460px;
+    padding: 36px 0;
+    border-radius: 20px;
+    background-image: url('../../assets/goit-logo.png'), url('../../assets/tweet.png'),
+      linear-gradient(142deg, #471ca9 0%, #5736a3 69.1%, #4b2a99 100%);
+    background-repeat: no-repeat;
+    background-position:
+      top 20px left 20px,
+      top 28px center,
+      center;
+
+    box-shadow: -2.5776965618133545px 6.873857021331787px 20.621572494506836px 0px
+      rgba(0, 0, 0, 0.23);
+  }
+
+  &__divider {
+    width: 100%;
+    height: 8px;
+    margin-bottom: 62px;
+    background-color: $light-pink;
+    box-shadow:
+      0px 3.4369285106658936px 2.5776965618133545px 0px #fbf8ff inset,
+      0px 3.4369285106658936px 3.4369285106658936px 0px rgba(0, 0, 0, 0.06),
+      0px -1.7184642553329468px 3.4369285106658936px 0px #ae7be3 inset;
+  }
+
+  &__thumb {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: $light-pink;
+    border-radius: 50%;
+    box-shadow:
+      0px 4.391631126403809px 3.2937235832214355px 0px #fbf8ff inset,
+      0px -2.1958155632019043px 4.391631126403809px 0px #ae7be3 inset;
+    filter: drop-shadow(0px 4.391631126403809px 4.391631126403809px rgba(0, 0, 0, 0.06));
+  }
+
+  &__image {
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 26px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__button {
+    padding: 14px 28px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 10.311px;
+    background-color: $light-pink;
+    box-shadow: 0px 3.4369285106658936px 3.4369285106658936px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background-color 250ms $timing-function;
+
+    &__button_active {
+      background-color: $green;
+    }
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+}

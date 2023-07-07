@@ -1,0 +1,38 @@
+@import '@styles/shared.scss';
+
+.header {
+  padding: 12px 0;
+  background-color: $purple;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 120px;
+    padding: 16px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition:
+      color 250ms $timing-function,
+      background-color 250ms $timing-function;
+
+    &.active {
+      color: $purple;
+      background-color: $light-pink;
+      cursor: default;
+    }
+
+    &:hover:not(.active) {
+      color: $purple;
+      background-color: $light-pink;
+    }
+  }
+}
