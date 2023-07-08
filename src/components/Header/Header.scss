@@ -1,8 +1,13 @@
 @import '@styles/shared.scss';
 
 .header {
-  padding: 12px 0;
-  background-color: $purple;
+  background: linear-gradient(142deg, #471ca9 0%, #5736a3 69.1%, #4b2a99 100%);
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__list {
     display: flex;
@@ -11,28 +16,65 @@
   }
 
   &__link {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 120px;
-    padding: 16px;
+    padding: 24px 0;
     font-weight: 500;
     line-height: 1;
-    text-transform: uppercase;
     border-radius: 6px;
     transition:
-      color 250ms $timing-function,
+      transform 250ms $timing-function,
       background-color 250ms $timing-function;
 
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 4px;
+      background-color: $green;
+      border-radius: 6px;
+      transform: scaleX(0);
+      transition: transform 250ms $timing-function;
+    }
+
     &.active {
-      color: $purple;
-      background-color: $light-pink;
+      color: $green;
       cursor: default;
     }
 
+    &.active.header__link::after {
+      transform: scaleX(1);
+    }
+
     &:hover:not(.active) {
-      color: $purple;
-      background-color: $light-pink;
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+  }
+
+  &__filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    color: $purple;
+    background-color: $light-pink;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 250ms $timing-function;
+
+    &:hover {
+      background-color: $green;
     }
   }
 }

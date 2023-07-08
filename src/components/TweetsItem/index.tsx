@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 
 import { Tweet } from '@types';
+import { useAppDispatch } from '@hooks';
+import { toggleFollowing } from '@store/tweets/slice';
 
 import './TweetsItem.scss';
 
@@ -8,7 +10,18 @@ type TweetsItemProps = {
   tweet: Tweet;
 };
 
-const TweetsItem: FC<TweetsItemProps> = ({ tweet: { user, tweets, followers, avatar } }) => {
+enum ButtonTextContent {
+  'FOLLOW' = 'Follow',
+  'FOLLOWING' = 'Following',
+}
+
+const TweetsItem: FC<TweetsItemProps> = ({
+  tweet: { id, user, followers, tweets, avatar, following },
+}) => {
+  const dispatch = useAppDispatch();
+
+  const toggleFollowingHandler = (id: string) => dispatch(toggleFollowing(id));
+
   return (
     <li className="tweets__item">
       <div className="tweets__divider"></div>
@@ -17,10 +30,14 @@ const TweetsItem: FC<TweetsItemProps> = ({ tweet: { user, tweets, followers, ava
       </div>
       <ul className="tweets__description">
         <li>{tweets} tweets</li>
-        <li>{followers} followers</li>
+        <li>{following ? followers + 1 : followers} followers</li>
       </ul>
-      <button type="button" className="tweets__button">
-        Follow
+      <button
+        type="button"
+        className={following ? 'tweets__button tweets__button_active' : 'tweets__button'}
+        onClick={() => toggleFollowingHandler(id)}
+      >
+        {following ? ButtonTextContent.FOLLOWING : ButtonTextContent.FOLLOW}
       </button>
     </li>
   );

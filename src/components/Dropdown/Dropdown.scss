@@ -1,0 +1,50 @@
+@import '@styles/shared.scss';
+
+.dropdown {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translate(-50%, 100%);
+  width: 100%;
+  min-width: 160px;
+  max-height: 150px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  background-color: $light-pink;
+  border: 1px solid $purple;
+  border-radius: 4px;
+  box-shadow: -2.5776965618133545px 6.873857021331787px 20.621572494506836px 0px rgba(0, 0, 0, 0.23);
+  overflow: auto;
+  cursor: pointer;
+  z-index: 1;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $light-pink;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $purple;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 10px 12px;
+    color: $purple;
+    &:not(:last-child) {
+      border-bottom: 1px dashed $purple;
+    }
+
+    &:hover {
+      color: $light-pink;
+      background-color: $purple;
+      border-color: $light-pink;
+    }
+  }
+}

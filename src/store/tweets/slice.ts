@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { getTweets } from './operations';
 import { Tweet } from '@types';
@@ -18,7 +18,16 @@ const tweetsInitialState: TweetsState = {
 const tweetsSlice = createSlice({
   name: 'users',
   initialState: tweetsInitialState,
-  reducers: {},
+  reducers: {
+    toggleFollowing(state, { payload }: PayloadAction<string>) {
+      return {
+        ...state,
+        items: state.items.map(item =>
+          item.id === payload ? { ...item, following: !item.following } : item
+        ),
+      };
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getTweets.pending, state => {
@@ -44,4 +53,5 @@ const tweetsSlice = createSlice({
       }),
 });
 
+export const { toggleFollowing } = tweetsSlice.actions;
 export const tweetsReducer = tweetsSlice.reducer;
