@@ -23,7 +23,7 @@ const filtersSlice = createSlice({
   initialState: filtersInitialState,
   reducers: {
     setStatus(state, { payload }: PayloadAction<Status>) {
-      return { ...state, status: payload };
+      return { ...state, page: INITIAL_PAGE, status: payload };
     },
     setPage(state, { payload }: PayloadAction<number>) {
       return { ...state, page: payload };
