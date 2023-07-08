@@ -69,6 +69,11 @@
     text-transform: uppercase;
   }
 
+  &__description-item {
+    display: flex;
+    gap: 8px;
+  }
+
   &__button {
     display: flex;
     justify-content: center;

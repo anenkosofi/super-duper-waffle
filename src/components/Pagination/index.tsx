@@ -136,7 +136,7 @@ const Pagination: FC<PaginationProps> = ({ isVisibleButton, showNext, showMore }
           <IoIosArrowBack size={24} className="pagination__button-icon" />
         </button>
       )}
-      <div className="pagination__quantity">{tweets.length} Tweets</div>
+      <div className="pagination__quantity">{tweets.length} Tweet(s)</div>
     </div>
   );
 };

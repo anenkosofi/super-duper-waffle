@@ -7,12 +7,14 @@ export interface TweetsState {
   items: Tweet[];
   isLoading: boolean;
   error: string | null;
+  following: string[];
 }
 
 const tweetsInitialState: TweetsState = {
   items: [],
   isLoading: false,
   error: null,
+  following: [],
 };
 
 const tweetsSlice = createSlice({
@@ -22,9 +24,9 @@ const tweetsSlice = createSlice({
     toggleFollowing(state, { payload }: PayloadAction<string>) {
       return {
         ...state,
-        items: state.items.map(item =>
-          item.id === payload ? { ...item, following: !item.following } : item
-        ),
+        following: state.following.includes(payload)
+          ? state.following.filter(item => item !== payload)
+          : [payload, ...state.following],
       };
     },
   },

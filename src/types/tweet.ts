@@ -4,5 +4,4 @@ export interface Tweet {
   tweets: number;
   followers: number;
   avatar: string;
-  following: boolean;
 }
